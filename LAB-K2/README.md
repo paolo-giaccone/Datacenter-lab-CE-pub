@@ -33,20 +33,21 @@ All the activities for the class labs are instead available under the  local `Da
 
 * NET is an network prefix (e.g., `10.1.2.0/24`)
 * IP is an IP address of an interface (e.g., `10.1.2.1`)
+* IP/MASK is an IP address with network mask MASK of an interface (e.g., `10.1.2.1/24`)
 * IFACE is an interface id (e.g., `eth0`)
 
 | Command | Meaning |
 |----| ----|
 | Interface settings|
-| `ip -4 addr`| Diplay IPv4 info on all the interfaces|
-| `ip address add IP dev IFACE` | Configure IP address on an interface|
+| `ip -4 address`| Diplay IPv4 info on all the interfaces|
+| `ip address add IP/MASK dev IFACE` | Configure IP address on an interface|
 | Routing table settings |
 | `ip route list`| Show routing tables |
 | `ip route add NET dev IFACE` | Add route to reach a network prefix on direct delivery on the given interface|
 | `ip route add NET via IP`| Add route to reach a network prefix through the specified gateway|
 | `ip route add default via IP` | Add the default  gateway|
 | `ip route del NET dev IFACE`| Remove route |
-| `ip route del NET via IP| Remove route|
+| `ip route del NET via IP`| Remove route|
 | `ip route del default` | Remove the default gateway|
 
 
