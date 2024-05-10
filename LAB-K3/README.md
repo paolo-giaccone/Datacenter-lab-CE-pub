@@ -66,23 +66,23 @@ Consider the topology below.
 ![Net1](Figs/net1.drawio.png)
 
 
-**Q2.1** Choose a proper addressing plan in order to minimize that waste of IP addresses, within the range 10.0.0.0/8. Assume that at most 1000 hosts could be connected to *netA1* and to *net2B*. Fill the following table.
+**Q2.1** Choose a proper addressing plan in order to minimize that waste of IP addresses, within the range 10.0.0.0/8. Assume that at most 1000 hosts could be connected to *neta1* and to *netbB*. Fill the following table.
 
 
 | Network | Network prefix|
 | ---| ---|
-| netA1  ||
+| neta1  ||
 |net12  |   |
-| net2B| |
+| net2b| |
 
 | Interface | IP address/netmask |
 |---|--- |
-| HA | |
-| HB
-| R1A | |
-| R12 | |
-| R21 | |
-| R2B | |
+| ha | |
+| hb
+| r1a | |
+| r12 | |
+| r21 | |
+| r2b | |
 
 **Q2.2** Configure the routing tables for each device. Fill the following table.
 
@@ -90,7 +90,7 @@ Consider the topology below.
 |---|---|---|
 |  ... |  |  |
 
-**Q2.3** Show the routing path `HA->HB` and `HB->HA` through `traceroute`.
+**Q2.3** Show the routing path `ha->hb` and `hb->ha` through `traceroute`.
 
 ## 3. Routing in a loop topology
 
@@ -98,31 +98,31 @@ Consider the topology below.
 
 ![Net1](Figs/net2.drawio.png)
 
-**Q3.1** Choose a proper addressing plan in order to minimize that waste of IP addresses, within the range 10.0.0.0/8. Assume that at most 100 hosts could be connected to *netA1* and to *net4B*. Fill the following table.
+**Q3.1** Choose a proper addressing plan in order to minimize that waste of IP addresses, within the range 10.0.0.0/8. Assume that at most 100 hosts could be connected to *neta1* and to *net4b*. Fill the following table.
 
 | Network | Network prefix|
 | ---| ---|
-| netA1  ||
+| neta1  ||
 |net12  |   |
 |net24  |   |
 |net13  |   |
 |net34  |   |
-| net4B| |
+| net4b| |
 
 | Interface | IP address/netmask |
 |---|--- |
-| HA | |
-| HB
-| R1A ||
-| R12 | |
-| R13 | |
-| R21 ||
-| R24 ||
-| R31 ||
-| R34||
-| R42 ||
-|R43||
-|R4B||
+| ha | |
+| hb||
+| r1a ||
+| r12 | |
+| r13 | |
+| r21 ||
+| r24 ||
+| r31 ||
+| r34||
+| r42 ||
+|r43||
+|r4b||
 
 
 **Q3.2** Configure the routing tables for each device such that *the traffic follow a clockwise direction within the loop* inside the topology. Fill the following table.
@@ -131,9 +131,9 @@ Consider the topology below.
 |---|---|---|
 |  ... |  |  |
 
-**Q3.3** Show the output of `ping ` from `HA` to `HB` and vice versa.
+**Q3.3** Show the output of `ping ` from `ha` to `hb` and vice versa.
 
-**Q3.4** Show the output of `traceroute` for path `HA->HB` and for path `HB->HA`.
+**Q3.4** Show the output of `traceroute` for path `ha->hb` and for path `hb->ha`.
 
 **Q3.5** (Optional) Show a routing table (as similar as possible to **Q3.2**) that would lead to a routing loop. For which destination IPs a routing loop will occur? 
 
