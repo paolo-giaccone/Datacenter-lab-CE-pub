@@ -1,0 +1,3 @@
+ip address add A.B.C.D/Z dev eth0
+...
+systemctl start frr
