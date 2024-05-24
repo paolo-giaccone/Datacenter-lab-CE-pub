@@ -3,36 +3,26 @@
 
 ## 4.1 Summary of the steps to emulate a network with BGP 
 
-The main steps to follow to start a lab on BGP is the following:
-1. create a `lab.conf` file with the topology and the images of each node. The router image should be `frr` as in the following example: `rX[image]="kathara/frr"` 
-2. create a `rX.startup` file for each router (say `rX`), assigning the IP address for each interface. Typically, you do not have to set the routing tables, since they will be computed by the routing protocol. Add also a line with `systemctl start frr` to start the routing daemon. See the [rX.config](template/rX.startup) template
+The main steps to follow to perform a completely new lab on BGP is the following:
+1. Create a `lab.conf` file with the topology and the images of each node. The router image should be `frr` as in the following example: `rX[image]="kathara/frr"` 
+2. Create a `rX.startup` file for each router (say `rX`), assigning the IP address for each interface. Typically, you do not have to set the routing tables, since they will be computed by the routing protocol. Add also a line with `systemctl start frr` to start the routing daemon. See the [rX.config](template/rX.startup) template
 3. Create, for each router (say `rX`), a folder sequence as `rX/etc/frr/` and with all the following files:
   * a file `daemons` with all the options required to start the routing daemaons. Use the [daemons](template/rX/etc/frr/daemons) template
   * a file `vtysh.conf` to configure the shell used to interact with BGP daemon `bgpd`. In particular, you must change the hostname into `hostname rX-frr` with the proper `rX`.
   * a file `frr.conf` to configure BGP. This is the most important file to modify to control the behavior of BGP. Use the [frr.conf](template/rX/etc/frr/frr.conf) template.
-4. Start the lab as usual 
+4. Start the lab as usual using `kathara lstart`
 
-
-## 4.3 Main BGP configuration
-
-The syntax of `frr.conf` is the following:
-- `! comment`: add a comment
-- `router bgp <my-as-number>`: define the AS number of the router
-- `neighbor <neighbor-ip> remote-as <neighbor-as-num>`: define XXX
-- `neighbor <neighbor-ip> description <text>`: define XXX
 
 ## 4.2 Useful commands in vtysh
 
 On the terminal of any BGP router, you can start `vtysh` to get detailed information from BGP deamon. The full documention is available on [https://docs.frrouting.org/en/latest/bgp.html](https://docs.frrouting.org/en/latest/bgp.html) under the section _Displaying BGP Information_. The main commands are the following:
 
-- `show ip route`: routing tables
-- `show ip bgp`: AS paths 
+- `show ip route`: routing tables (important)
+- `show ip bgp`: AS paths (important) 
+- `show bgp neighbors`: neighbors
 - `show ip bgp A.B.C.D` 
 - `show bgp all`
 - `show bgp all detail`
-- `show bgp neighbors`
-
-
 
 ## 4.3 Peerring between two routers
 
