@@ -26,8 +26,9 @@ On the terminal of any BGP router, you can start `vtysh` to get detailed informa
 
 ## 4.3 Peerring between two routers
 
-Read the [lab activity](bgp-simple-peering/041-kathara-lab_bgp-simple-peering.pdf)
-and perfom the whole activity. 
+
+As preliminary step, study the [slides on BGP peering](bgp-simple-peering/041-kathara-lab_bgp-simple-peering.pdf)
+and perfom the whole activity proposed in the slides. 
 
 Now start a new lab in a new folder implementing the following topology:
 
@@ -55,8 +56,8 @@ Answer to the following questions:
 
 ## 4.4 BGP Announcements with 2 ASs
 
-Read the [lab activity](bgp-announcement/042-kathara-lab_bgp-announcement.pdf)
-and perfom the whole activity. 
+As preliminary step, study the [slides on BGP announcement](bgp-announcement/042-kathara-lab_bgp-announcement.pdf)
+and perfom the whole activity proposed in the slides.
 
 Now start a new lab in a new folder implementing the following topology:
 
@@ -74,6 +75,101 @@ Answer to the following questions:
 |---|---|
 | ... | ...|
 
+## 4.4 (Partial solution)
+
+### r1 Routing tables and AS paths
+
+
+
+```shell
+root@r1:/# ip route
+1.1.1.0/24 dev eth0 proto kernel scope link src 1.1.1.11 
+2.2.2.0/24 dev eth1 proto kernel scope link src 2.2.2.11 
+3.3.3.0/24 nhid 6 via 2.2.2.12 dev eth1 proto bgp metric 20 
+```
+Thus, router r1 is aware of the routes to reach the direct delivery networks and the routes to reach 3.3.3.0/24 through 2.2.2.12. 
+
+```shell
+r1-frr# show ip bgp 
+BGP table version is 2, local router ID is 2.2.2.11, vrf id 0
+Default local pref 100, local AS 100
+...
+    Network          Next Hop            Metric LocPrf Weight Path
+ *> 1.1.1.0/24       0.0.0.0                  0         32768 i
+ *> 3.3.3.0/24       2.2.2.12                 0             0 200 i
+
+Displayed  2 routes and 2 total paths
+```
+
+Thus, the AS path identified by BGP is:
+3.3.3.0/24 AS200.
+
+### r2 Routing tables and AS paths
+
+```shell
+root@r2:/# ip route
+1.1.1.0/24 nhid 6 via 2.2.2.11 dev eth0 proto bgp metric 20 
+2.2.2.0/24 dev eth0 proto kernel scope link src 2.2.2.12 
+3.3.3.0/24 dev eth1 proto kernel scope link src 3.3.3.12 
+```
+Thus, router r2 is aware of the routes to reach the direct delivery networks and the routes to reach 1.1.1.0/24 through 2.2.2.11.
+
+
+
+```shell
+r2-frr# show ip bgp
+BGP table version is 2, local router ID is 3.3.3.12, vrf id 0
+Default local pref 100, local AS 200
+...
+    Network          Next Hop            Metric LocPrf Weight Path
+ *> 1.1.1.0/24       2.2.2.11                 0             0 100 i
+ *> 3.3.3.0/24       0.0.0.0                  0         32768 i
+
+Displayed  2 routes and 2 total paths
+```
+
+Thus, the AS path identified by BGP is:
+1.1.1.0/24 AS100.
+
+
+### Connectivity h1->h2
+
+
+
+```shell
+root@h1:/# ping 3.3.3.1 -c 1
+PING 3.3.3.1 (3.3.3.1) 56(84) bytes of data.
+64 bytes from 3.3.3.1: icmp_seq=1 ttl=62 time=4.33 ms
+
+--- 3.3.3.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 4.332/4.332/4.332/0.000 ms
+root@h1:/# traceroute 3.3.3.1
+traceroute to 3.3.3.1 (3.3.3.1), 30 hops max, 60 byte packets
+ 1  1.1.1.11 (1.1.1.11)  1.018 ms  1.356 ms  1.555 ms
+ 2  2.2.2.12 (2.2.2.12)  2.034 ms  2.929 ms  3.251 ms
+ 3  3.3.3.1 (3.3.3.1)  3.593 ms  4.492 ms  4.719 ms
+ ```
+
+`ping` shows the connectivity between the two hosts and `traceroute` shows the router "entering" interfaces along the path.
+
+### Connectivity h2->h1
+
+```shell
+root@h2:/# ping 1.1.1.1 -c 1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=62 time=3.41 ms
+
+--- 1.1.1.1 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 3.409/3.409/3.409/0.000 ms
+root@h2:/# traceroute 1.1.1.1
+traceroute to 1.1.1.1 (1.1.1.1), 30 hops max, 60 byte packets
+ 1  3.3.3.12 (3.3.3.12)  1.060 ms  1.451 ms  1.451 ms
+ 2  2.2.2.11 (2.2.2.11)  2.451 ms  4.864 ms  4.887 ms
+ 3  1.1.1.1 (1.1.1.1)  6.426 ms  6.721 ms  6.612 ms
+```
+`ping` shows the connectivity between the two hosts and `traceroute` shows the router "entering" interfaces along the path. Such interfaces are complementary with repect to the interfaces identified in the previous case.
 
 ## 4.5 BGP Announcements with a linear topology
 
