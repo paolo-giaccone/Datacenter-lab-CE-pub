@@ -40,7 +40,8 @@ All the activities for the class labs are instead available under the  local `Da
 |----| ----|
 | Interface settings|
 | `ip -4 address`| Diplay IPv4 info on all the interfaces|
-| `ip address add IP/MASK dev IFACE` | Configure IP address on an interface|
+| `ip address add IP/MASK dev IFACE` | Configure IP address of an interface|
+| `ip address del IP/MASK dev IFACE` | Delete IP address of an interface|
 | Routing table settings |
 | `ip route list`| Show routing tables |
 | `ip route add NET dev IFACE` | Add route to reach a network prefix on direct delivery on the given interface|
