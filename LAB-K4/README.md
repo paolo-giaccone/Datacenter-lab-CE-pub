@@ -51,7 +51,7 @@ Answer to the following questions:
 2. Start the lab. Check for both routers the routing tables with both `route` and `ip route`. Are the obtained info equivalent?
 1. Looking at the `log` file of BGP, how often the KEEPALIVE message is sent among the routers?
 1. Instead of using `telnet`, use `vtysh` to access the command line interface of `bgpd`. What you learn from the output of `show ip bgp`? You can exit `vtysh` by typing `exit`.
-1. What you learn from the output of `show ip summary`?
+1. What you learn from the output of `show ip bgp  summary`?
 1. Try to ping `h2` from `h1`. Does it work? Why?
 
 ## 4.4 BGP Announcements with 2 ASs

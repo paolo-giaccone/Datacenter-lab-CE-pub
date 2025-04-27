@@ -10,7 +10,7 @@ The topology figure is reported below:
 Before running the lab:
 
 1. Check the files in the [lab folder](./data-center-bgp/kathara-lab_data-center-bgp/). As a suggestion, a simple way to access the file from the root folder of the lab is to use the command `cat`. E.g., `cat lab.conf`, `cat tof*startup`, `cat tof_1_2_*/etc/frr/bgpd.conf`. Use `[TAB]` for autocompletion!
-To evaluate the differences between file configurations, exploit `diff`. E.g., `diff diff spine_1_1_1.startup leaf_1_0_1.startup`,`diff tof_1_2_1/etc/frr/bgpd.conf tof_1_2_2/etc/frr/bgpd.conf`. To scan across multiple files and identify some specific lines, use `grep`. E.g., `grep peer-group */etc/frr/bgpd.conf` or `grep peer-group */etc/frr/bgpd.conf|grep -v interface`.
+To evaluate the differences between file configurations, exploit `diff`. E.g., `diff spine_1_1_1.startup leaf_1_0_1.startup`,`diff tof_1_2_1/etc/frr/bgpd.conf tof_1_2_2/etc/frr/bgpd.conf`. To scan across multiple files and identify some specific lines, use `grep`. E.g., `grep peer-group */etc/frr/bgpd.conf` or `grep peer-group */etc/frr/bgpd.conf|grep -v interface`.
 1. Find the local id of each interface for all the topology (e.g., eth0, eth1) and report in the topology figure. How did you discover such information?
 1. Check the startup file of each device. What are the interfaces for which the IP addresses have been configured?
 1. Just based on the startup file, how the configuration of a router differs from the one of an host? 
@@ -30,7 +30,7 @@ Now run the lab.
 
 ## K5.3 Failures (optional)
 
-12. While operating the detacenter, emulate failures with `sudo ip link set ethX down` (where `ethx` is a proper interface name).
+12. While operating the datacenter, emulate failures with `ip link set ethX down` (where `ethx` is a proper interface name).
 13. What happens at BGP level? Is there any impact on the AS paths?
 1. What happens on the traffic? Is there any impact on the connectivity between two servers?
 
