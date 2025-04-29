@@ -27,7 +27,7 @@ All the activities for the class labs are instead available under the  local `Da
    * Q7. What is the output of `kathara linfo` when the lab is running?
    * Q8. What is the output of `kathara list` when the lab is running?
    * Now stop the lab using `kathara lclean`.
-   * Q9. What is the current states of images and running containers, after starting kathara? Show the outputs of the proper `docker` commands.
+   * Q9. What is the current states of images and running containers, after stopping the lab in kathara? Show the outputs of the proper `docker` commands.
 
 ## Reference commands
 
