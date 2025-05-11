@@ -190,7 +190,8 @@ with the IP addressing plan of section 4.3,  plus the following interfaces:
 |---|--- |
 | r2-eth2| 4.4.4.20/24|
 | r3-eth0| 4.4.4.30/24|
-| r3-eth1| 5.5.5.3/24|
+| r3-eth1| 5.5.5.30/24|
+| h3-eth0 | 5.5.5.3/24|
 
 1. Report the routes in each router shown with `show ip route`. Are they correct? Why?
 1. Try to ping `h2` and `h3` from `h1`. Does it work? Why?
