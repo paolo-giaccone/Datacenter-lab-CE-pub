@@ -22,6 +22,8 @@ To evaluate the differences between file configurations, exploit `diff`. E.g., `
 
  Router | Network prefix | AS path
 ----|---|---|
+leaf_2_0_1|202.1.1.0/24| |
+spine_2_1_1|202.1.1.0/24| |
 tof_1_2_1|202.1.1.0/24| |
 spine_1_1_1|202.1.1.0/24||
 leaf_1_0_1|202.1.1.0/24||
