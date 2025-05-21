@@ -18,12 +18,13 @@ To evaluate the differences between file configurations, exploit `diff`. E.g., `
 1. What are the differences in the BGP configuration of the two ToF routers?
 1. What are the three different ECMP policies that can be selected? How do they differ?
 1. Show in the topology figure the name of the peer group associated to each interface.
-1. Considering just the topology, compute what would be the AS paths for `tof_1_2_1`, for `spine_1_1_1` and for `leaf_1_0_1` just for the network prefix `202.1.1.0/24`.
+1. Considering just the topology, compute what would be the AS paths for the three specific routers shown in the table
 
  Router | Network prefix | AS path
 ----|---|---|
-...|202.1.1.0/24| ...|
-
+tof_1_2_1|202.1.1.0/24| |
+spine_1_1_1|202.1.1.0/24||
+leaf_1_0_1|202.1.1.0/24||
 
 
 
