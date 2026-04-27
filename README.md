@@ -5,7 +5,7 @@
 > As preliminary step, update the laboratory activities with `cd
 Datacenter-lab-CE` and `git pull`.
 > 
-> In the case of have divergent branches, you must run:
+>  In the case of divergent `git` branches after typing `git pull`, you must run:
 `git config pull.rebase true`.
 > 
 > In the case you are not able to access `/media/mydrive` without sudo, you must type:
