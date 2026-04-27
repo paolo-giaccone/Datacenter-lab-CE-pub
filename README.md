@@ -1,8 +1,15 @@
 # Laboratory on data center routing
 
+
 > [!IMPORTANT]
 > As preliminary step, update the laboratory activities with `cd
-Datacenter-lab-CE` and `git pull`. 
+Datacenter-lab-CE` and `git pull`.
+> 
+> In the case of have divergent branches, you must run:
+`git config pull.rebase true`.
+> 
+> In the case you are not able to access `/media/mydrive` without sudo, you must type:
+> `sudo chown -R ubuntu:ubuntu /media/mydrive`
 
 Perform the following labs 
 * [LAB-K1](LAB-K1)
