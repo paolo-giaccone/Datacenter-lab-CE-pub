@@ -1,6 +1,6 @@
 # LAB-K3. Basic topology and routing
 
-## 1. Single server topology
+## 1. Single router topology
 Configure a topology in which router `r1` is connected to host `hb` on one
 interface and to host `bg` on the other interface. 
 
@@ -9,14 +9,14 @@ interface and to host `bg` on the other interface.
 Create a `lab.conf` file:
 
 ```shell
-ha[0]="A"
+ha[0]="neta"
 ha[image]="kathara/base"
 
-r1[0]="A"
-r1[1]="B"
+r1[0]="neta"
+r1[1]="netb"
 r1[image]="kathara/frr"
 
-hb[0]="B"
+hb[0]="netb"
 hb[image]="kathara/base"
 ```
 thus, `ha` and `hb` are connected on the same network.
