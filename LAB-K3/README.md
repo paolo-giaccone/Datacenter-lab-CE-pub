@@ -92,7 +92,15 @@ Consider the topology below.
 |---|---|---|
 |  ... |  |  |
 
-**Q2.3** Show the routing path `ha->hb` and `hb->ha` through `traceroute`.
+**Q2.3** Show the routing path `ha->hb` and `hb->ha` through
+`traceroute` and comment if the two `traceroute` provide the same
+information
+
+**Q2.4** Create a loop in the routing table  by eventually modifying
+the routing tables. Report the output of `ping` and of 
+`traceroute` that shows the loop. Optionally, you can use `tcpdump -v -i
+INTERFACE` to observe the packet at a given `INTERFACE`.
+Comment the output.
 
 
 
