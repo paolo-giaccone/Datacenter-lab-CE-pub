@@ -57,6 +57,42 @@ Run the lab through `kathara lstart` and test connectivity and performance
 
 **Q1.5** Through `traceroute`, report the output of the route `ha->hb` and of the route `hb->ha`. Are the same? Why?
 
-**Q1.6** Through `iperf3`, report the average bandwidth between `ha` and `hb`. Recall that `iperf3 -s` runs as server and `iperf3 -c X.X.X.X` runs as client sending the traffic towards `X.X.X.X`. 
+**Q1.6** Through `iperf3`, report the average bandwidth between `ha`
+and `hb`. Recall that `iperf3 -s` runs as server and `iperf3 -c
+X.X.X.X` runs as client sending the traffic towards `X.X.X.X`. 
+
+## 2. Linear topology with two routers
+
+Consider the topology below.
+
+![Net1](Figs/net1.drawio.png)
+
+
+**Q2.1** Choose a proper addressing plan in order to minimize the waste of IP addresses, within the range 10.M.0.0/16, where M is your matricola modulo 100. Assume that at most 1000 hosts could be connected to each network *neta1* and *netbB*. Fill the following table.
+
+
+| Network | Network address|
+| ---| ---|
+| neta1  ||
+|net12  |   |
+| net2b| |
+
+| Interface | IP address/netmask |
+|---|--- |
+| ha | |
+| hb
+| r1a | |
+| r12 | |
+| r21 | |
+| r2b | |
+
+**Q2.2** Configure the routing tables for each device. Fill the following table.
+
+| Network prefix | Gateway | Interface |
+|---|---|---|
+|  ... |  |  |
+
+**Q2.3** Show the routing path `ha->hb` and `hb->ha` through `traceroute`.
+
 
 
