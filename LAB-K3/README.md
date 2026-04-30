@@ -99,7 +99,7 @@ information
 **Q2.4** Create a loop in the routing table  by eventually modifying
 the routing tables. Report the output of `ping` and of 
 `traceroute` that shows the loop. Optionally, you can use `tcpdump -v -i
-INTERFACE` to observe the packet at a given `INTERFACE`.
+INTERFACE` to observe the packets at a given `INTERFACE`.
 Comment the output.
 
 
