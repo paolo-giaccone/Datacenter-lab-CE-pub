@@ -57,9 +57,7 @@ Run the lab through `kathara lstart` and test connectivity and performance
 
 **Q1.5** Through `traceroute`, report the output of the route `ha->hb` and of the route `hb->ha`. Are the same? Why?
 
-**Q1.6** Through `iperf3`, report the average bandwidth between `ha`
-and `hb`. Recall that `iperf3 -s` runs as server and `iperf3 -c
-X.X.X.X` runs as client sending the traffic towards `X.X.X.X`. 
+**Q1.6** Through `iperf3`, report the average bandwidth between `ha` and `hb`. Recall that `iperf3 -s` runs as server and `iperf3 -c X.X.X.X` runs as client sending the traffic towards `X.X.X.X`. 
 
 ## 2. Linear topology with two routers
 
@@ -94,7 +92,7 @@ Consider the topology below.
 
 **Q2.3** Show the routing path `ha->hb` and `hb->ha` through
 `traceroute` and comment if the two `traceroute` provide the same
-information
+information.
 
 **Q2.4** Create a loop in the routing table  by eventually modifying
 the routing tables. Report the output of `ping` and of 
@@ -102,5 +100,50 @@ the routing tables. Report the output of `ping` and of
 INTERFACE` to observe the packets at a given `INTERFACE`.
 Comment the output.
 
+## 3. Routing in a loop topology
 
+Consider the topology below.
+
+![Net1](Figs/net2.drawio.png)
+
+**Q3.1** Choose a proper addressing plan in order to minimize the waste of IP addresses, within the range M.0.0.0/8, where M is your matricola number modulo 100. Assume that at most 100 hosts could be connected to each network *neta1* and *net4b*. All the links between two routers are point-to-point. Fill the following table.
+
+| Network | Network address|
+| ---| ---|
+| neta1  ||
+|net12  |   |
+|net24  |   |
+|net13  |   |
+|net34  |   |
+| net4b| |
+
+| Interface | IP address/netmask |
+|---|--- |
+| ha | |
+| hb||
+| r1a ||
+| r12 | |
+| r13 | |
+| r21 ||
+| r24 ||
+| r31 ||
+| r34||
+| r42 ||
+|r43||
+|r4b||
+
+
+**Q3.2** Configure the routing tables for each device such that *the traffic follow a clockwise direction within the loop* inside the topology. The routing should avoid loops for any possible destination IP. Fill the following table.
+
+| Network prefix | Gateway | Interface |
+|---|---|---|
+|  ... |  |  |
+
+**Q3.3** Show the output of `ping ` with a single ICMP packet from `ha` to `hb` and vice versa.
+
+**Q3.4** Show the output of `traceroute` for path `ha->hb` and for path `hb->ha`.
+
+**Q3.5** (Optional) Show a routing table (as similar as possible to **Q3.2**) that would lead to a routing loop. For which destination IPs a routing loop will occur? 
+
+**Q3.6** (Optional) Configure the routing table as in Q3.5 and show the effect of a routing loop using `ping` and `traceroute`. 
 
