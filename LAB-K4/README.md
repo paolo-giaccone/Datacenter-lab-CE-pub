@@ -87,3 +87,44 @@ Answer to the following questions:
 |---|---|
 | ... | ...|
 
+
+## 4.5 BGP Announcements with a linear topology
+
+Now start a new lab in a new folder implementing the following topology:
+
+![Net4](Figs/peering3.drawio.png)
+
+with the IP addressing plan of section 4.3,  plus the following interfaces:
+| Interface | IP address/netmask |
+|---|--- |
+| r2-eth2| 4.4.4.20/24|
+| r3-eth0| 4.4.4.30/24|
+| r3-eth1| 5.5.5.30/24|
+| h3-eth0 | 5.5.5.3/24|
+
+1. Report the routes in each router shown with `show ip route`. Are they correct? Why?
+1. Try to ping `h2` and `h3` from `h1`. Does it work? Why?
+1. Report the AS paths in each router shown with `show ip bgp`. Fill also the following table:
+
+| Network prefix | AS path |
+|---|---|
+| ... | ...|
+
+
+## 4.6 (Optional) BGP Announcements for a loop topology
+
+Now start a new lab in a new folder implementing the following topology:
+
+![Net4](Figs/peering4.drawio.png)
+
+1. Configure all the IP addresses.
+
+2. Check if BGP is able to compute properly the routing tables.
+
+1. Report the routing tables with `show ip route`. Is there any routing loop?
+
+1. Report the AS paths with `show ip bgp`. Are all the paths considered.
+
+1. Comment about the capability of BGP of managing routing loops.
+
+
