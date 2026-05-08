@@ -1,0 +1,4 @@
+# configure properly the IP address for all the interfaces
+ip address add A.B.C.D/Z dev ethX
+# run FRR daemaon with BGP
+systemctl start frr
