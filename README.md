@@ -10,8 +10,7 @@ Datacenter-lab-CE` and `git pull`.
 > In the case of error `error: cannot pull with rebase: You have unstaged changes.
 error: please commit or stash them.` after `git pull`, you must run: `git pull --rebase --autostash`
 > 
-> In the case you are not able to access `/media/mydrive` without sudo, you must type:
-> `sudo chown -R ubuntu:ubuntu /media/mydrive`
+> Use `sudo` to write on `/media/mydrive`. E.g., `sudo cp file.txt /media/mydrive/`
 
 Perform the following labs 
 * [LAB-K1](LAB-K1)
